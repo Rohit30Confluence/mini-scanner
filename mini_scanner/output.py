@@ -27,21 +27,40 @@ def print_results(
             Target that was scanned.
 
         results:
-            Scan results.
+            Iterable of ScanResult objects.
 
         json_output:
-            Print JSON instead of table output.
+            Print JSON instead of a formatted table.
 
         output_file:
-            Optional output file.
+            Optional output file path.
     """
 
     results = list(results)
 
+    open_ports = sum(r.status is PortStatus.OPEN for r in results)
+    closed_ports = sum(r.status is PortStatus.CLOSED for r in results)
+    filtered_ports = sum(r.status is PortStatus.FILTERED for r in results)
+    error_ports = sum(r.status is PortStatus.ERROR for r in results)
+
     if json_output:
-        text = _json_output(target, results)
+        text = _json_output(
+            target=target,
+            results=results,
+            open_ports=open_ports,
+            closed_ports=closed_ports,
+            filtered_ports=filtered_ports,
+            error_ports=error_ports,
+        )
     else:
-        text = _table_output(target, results)
+        text = _table_output(
+            target=target,
+            results=results,
+            open_ports=open_ports,
+            closed_ports=closed_ports,
+            filtered_ports=filtered_ports,
+            error_ports=error_ports,
+        )
 
     if output_file:
         Path(output_file).write_text(
@@ -55,12 +74,17 @@ def print_results(
 def _table_output(
     target: Target,
     results: list[ScanResult],
+    *,
+    open_ports: int,
+    closed_ports: int,
+    filtered_ports: int,
+    error_ports: int,
 ) -> str:
     """
-    Build human-readable output.
+    Generate human-readable table output.
     """
 
-    lines = []
+    lines: list[str] = []
 
     lines.append(f"Target : {target.hostname}")
     lines.append(f"Address: {target.address}")
@@ -69,24 +93,21 @@ def _table_output(
     lines.append(f"{'PORT':<8}{'STATE':<12}BANNER")
     lines.append("-" * 70)
 
-    open_ports = 0
-
     for result in results:
-
-        banner = result.banner or ""
-
         lines.append(
             f"{result.port:<8}"
             f"{result.status.value:<12}"
-            f"{banner}"
+            f"{result.banner or ''}"
         )
 
-        if result.status is PortStatus.OPEN:
-            open_ports += 1
-
     lines.append("")
-    lines.append(f"Open ports : {open_ports}")
-    lines.append(f"Scanned    : {len(results)}")
+    lines.append("Summary")
+    lines.append("-" * 70)
+    lines.append(f"Scanned   : {len(results)}")
+    lines.append(f"Open      : {open_ports}")
+    lines.append(f"Closed    : {closed_ports}")
+    lines.append(f"Filtered  : {filtered_ports}")
+    lines.append(f"Errors    : {error_ports}")
 
     return "\n".join(lines)
 
@@ -94,9 +115,14 @@ def _table_output(
 def _json_output(
     target: Target,
     results: list[ScanResult],
+    *,
+    open_ports: int,
+    closed_ports: int,
+    filtered_ports: int,
+    error_ports: int,
 ) -> str:
     """
-    Build JSON output.
+    Generate JSON output.
     """
 
     data = {
@@ -106,10 +132,10 @@ def _json_output(
         },
         "summary": {
             "ports_scanned": len(results),
-            "open_ports": sum(
-                r.status is PortStatus.OPEN
-                for r in results
-            ),
+            "open_ports": open_ports,
+            "closed_ports": closed_ports,
+            "filtered_ports": filtered_ports,
+            "error_ports": error_ports,
         },
         "results": [
             result.to_dict()
@@ -120,4 +146,5 @@ def _json_output(
     return json.dumps(
         data,
         indent=4,
+        ensure_ascii=False,
     )
