@@ -1,0 +1,99 @@
+# ==========================================
+# Python
+# ==========================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C Extensions
+*.so
+
+# Distribution / Packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+share/python-wheels/
+*.egg-info/
+*.egg
+
+# Installer Logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit Test / Coverage
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+htmlcov/
+coverage.xml
+
+# Type Checker
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# Pyre
+.pyre/
+
+# Pytype
+.pytype/
+
+# Hypothesis
+.hypothesis/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build Artifacts
+*.tar.gz
+*.zip
+*.whl
+
+# Documentation
+site/
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+
+# Local Configuration
+.local/
