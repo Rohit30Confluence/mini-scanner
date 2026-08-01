@@ -1,0 +1,85 @@
+# ============================================================================
+# Docker Ignore File
+# ============================================================================
+
+# Git
+.git
+.gitignore
+.github
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test artifacts
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Type checking
+.mypy_cache/
+
+# Linting
+.ruff_cache/
+
+# Tox
+.tox/
+.nox/
+
+# Pre-commit
+.pre-commit-cache/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Documentation build
+site/
+
+# Local environment files
+.env
+.env.*
+
+# Node.js
+node_modules/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Archives
+*.zip
+*.tar
+*.gz
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker Compose override
+docker-compose.override.yml
