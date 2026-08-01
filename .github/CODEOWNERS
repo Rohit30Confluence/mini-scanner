@@ -1,0 +1,27 @@
+# -----------------------------------------------------------------------------
+# CODEOWNERS
+# Automatically request reviews from code owners.
+# The last matching rule takes precedence.
+# -----------------------------------------------------------------------------
+
+# Default owner for the entire repository
+* @Rohit30Confluence
+
+# GitHub workflows
+/.github/ @Rohit30Confluence
+
+# Source code
+/mini_scanner/ @Rohit30Confluence
+
+# Tests
+/tests/ @Rohit30Confluence
+
+# Documentation
+/docs/ @Rohit30Confluence
+README.md @Rohit30Confluence
+CHANGELOG.md @Rohit30Confluence
+
+# Project configuration
+pyproject.toml @Rohit30Confluence
+pytest.ini @Rohit30Confluence
+requirements*.txt @Rohit30Confluence
