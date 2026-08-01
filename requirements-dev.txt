@@ -14,7 +14,7 @@ ruff>=0.6.2
 mypy>=1.11.2
 
 # Packaging
-build>=1.2.2
+build>=1.5.0
 twine>=5.1.1
 
 # Pre-commit Hooks
