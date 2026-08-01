@@ -1,0 +1,61 @@
+version: "3.9"
+
+services:
+  mini-scanner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: mini-scanner
+
+    stdin_open: true
+    tty: true
+
+    volumes:
+      - .:/app
+
+    working_dir: /app
+
+    environment:
+      PYTHONUNBUFFERED: "1"
+
+    command: ["python", "-m", "mini_scanner", "--help"]
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: mini-scanner-tests
+
+    volumes:
+      - .:/app
+
+    working_dir: /app
+
+    command:
+      [
+        "pytest",
+        "-v",
+        "--cov=mini_scanner",
+        "--cov-report=term-missing"
+      ]
+
+  lint:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: mini-scanner-lint
+
+    volumes:
+      - .:/app
+
+    working_dir: /app
+
+    command:
+      [
+        "bash",
+        "-c",
+        "black --check . && isort --check-only . && ruff check ."
+      ]
