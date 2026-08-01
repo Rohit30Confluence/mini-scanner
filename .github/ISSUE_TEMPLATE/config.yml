@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: 📖 Documentation
+    url: https://github.com/Rohit30Confluence/mini-scanner#readme
+    about: Read the documentation before opening an issue.
+
+  - name: 💬 Discussions
+    url: https://github.com/Rohit30Confluence/mini-scanner/discussions
+    about: Ask questions, share ideas, and discuss the project.
+
+  - name: 🔒 Security Vulnerability
+    url: https://github.com/Rohit30Confluence/mini-scanner/security/policy
+    about: Please report security vulnerabilities privately according to the security policy.
