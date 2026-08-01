@@ -2,7 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on **Keep a Changelog** and follows **Semantic Versioning (SemVer)**.
+The format is based on **Keep a Changelog** and this project follows **Semantic Versioning (SemVer)**.
+
+- Keep a Changelog: https://keepachangelog.com/en/1.1.0/
+- Semantic Versioning: https://semver.org/
 
 ---
 
@@ -10,21 +13,33 @@ The format is based on **Keep a Changelog** and follows **Semantic Versioning (S
 
 ### Added
 
-- Planned IPv6 support
-- Planned CSV output
-- Planned asynchronous scanning engine
-- Planned service detection
-- Planned plugin architecture
+- Initial GitHub Actions CI
+- CodeQL security scanning
+- Dependency Review workflow
+- Automated Release workflow
+- Dependabot configuration
+- Issue templates
+- Pull request template
+- Security policy
+- CODEOWNERS
+- Contributing guide
+- Code of Conduct
 
 ### Changed
 
-- Documentation improvements
-- Performance optimizations
-- Code quality enhancements
+- None
 
 ### Fixed
 
-- Bug fixes will be listed here.
+- None
+
+### Removed
+
+- None
+
+### Security
+
+- None
 
 ---
 
@@ -32,48 +47,38 @@ The format is based on **Keep a Changelog** and follows **Semantic Versioning (S
 
 ### Added
 
-#### Core Features
-
-- TCP Connect Port Scanner
-- Concurrent scanning using ThreadPoolExecutor
-- Hostname resolution
-- Configurable timeout
+- TCP port scanner
+- IPv4 and IPv6 support
+- Concurrent scanning
 - Banner grabbing
-- Human-readable CLI output
+- Configurable worker pool
+- Configurable timeout
+- Immutable configuration
+- CLI interface
 - JSON output
-- Logging support
-
-#### Project Structure
-
-- Modular package layout
-- Configuration module
-- Scanner engine
-- Output formatter
-- Target resolver
-- Result models
-
-#### Testing
-
+- Table output
+- Comprehensive parser
+- Result serialization
+- Integration tests
 - Unit tests
-- Parser tests
-- Scanner tests
-- Output formatter tests
 
-#### Documentation
+### Changed
 
-- Comprehensive README
-- Architecture overview
-- Installation guide
-- Usage examples
+- Initial stable release.
 
-#### Development
+### Fixed
 
-- Modern Python packaging
-- MIT License
-- GitHub repository
-- Development requirements
-- EditorConfig
-- GitHub-ready repository structure
+- Configuration validation
+- Banner handling
+- Scanner stability
+- Exception handling
+- Package structure
+
+### Security
+
+- Added CodeQL analysis
+- Added dependency review
+- Added responsible disclosure policy
 
 ---
 
@@ -81,13 +86,28 @@ The format is based on **Keep a Changelog** and follows **Semantic Versioning (S
 
 This project follows Semantic Versioning.
 
-- MAJOR version for incompatible API changes.
-- MINOR version for new functionality.
-- PATCH version for bug fixes.
+- **MAJOR** version for incompatible API changes.
+- **MINOR** version for backward-compatible functionality.
+- **PATCH** version for backward-compatible bug fixes.
 
-Examples:
+Example:
 
-- 1.0.0 → Initial release
-- 1.1.0 → New features
-- 1.1.1 → Bug fixes
-- 2.0.0 → Breaking changes
+```
+1.0.0
+1.0.1
+1.1.0
+2.0.0
+```
+
+---
+
+## Release Process
+
+Each release should include:
+
+- New features
+- Bug fixes
+- Security improvements
+- Breaking changes
+- Dependency updates
+- Documentation updates
