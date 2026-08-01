@@ -1,5 +1,5 @@
 """
-Command-line interface for Mini Scanner.
+Command-line entry point for Mini Scanner.
 """
 
 from __future__ import annotations
@@ -8,24 +8,24 @@ import argparse
 import logging
 import sys
 
-from mini_scanner.config import Config
-from mini_scanner.exceptions import (
+from .config import Config
+from .exceptions import (
     ConfigurationError,
     PortValidationError,
     ScanError,
     TargetResolutionError,
 )
-from mini_scanner.output import print_results
-from mini_scanner.parser import parse_ports
-from mini_scanner.scanner import Scanner
-from mini_scanner.target import resolve_target
-from mini_scanner.version import __version__
+from .output import print_results
+from .parser import parse_ports
+from .scanner import Scanner
+from .target import resolve_target
+from .version import __version__
 
-LOGGER = logging.getLogger(__name__)
+LOGGER = logging.getLogger("mini_scanner")
 
 
 def build_parser() -> argparse.ArgumentParser:
-    """Create and configure the CLI parser."""
+    """Create the command-line argument parser."""
 
     parser = argparse.ArgumentParser(
         prog="mini-scanner",
@@ -34,14 +34,14 @@ def build_parser() -> argparse.ArgumentParser:
 
     parser.add_argument(
         "target",
-        help="Hostname or IPv4 address to scan.",
+        help="Hostname or IP address to scan.",
     )
 
     parser.add_argument(
         "-p",
         "--ports",
         default="1-1024",
-        help="Ports or ranges (example: 22,80,443,8000-8100)",
+        help="Ports or ranges (e.g. 22,80,443,8000-8100).",
     )
 
     parser.add_argument(
@@ -57,13 +57,19 @@ def build_parser() -> argparse.ArgumentParser:
         "--workers",
         type=int,
         default=100,
-        help="Maximum concurrent worker threads.",
+        help="Maximum worker threads.",
     )
 
     parser.add_argument(
         "--json",
         action="store_true",
-        help="Output results in JSON format.",
+        help="Output results as JSON.",
+    )
+
+    parser.add_argument(
+        "-o",
+        "--output",
+        help="Write output to a file.",
     )
 
     parser.add_argument(
@@ -83,7 +89,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> int:
-    """Application entry point."""
+    """CLI entry point."""
 
     parser = build_parser()
     args = parser.parse_args()
@@ -94,14 +100,17 @@ def main() -> int:
     )
 
     try:
-        ports = parse_ports(args.ports)
-
         config = Config(
             timeout=args.timeout,
             workers=args.workers,
         )
 
-        target = resolve_target(args.target)
+        ports = parse_ports(args.ports)
+
+        target = resolve_target(
+            args.target,
+            ipv6=config.ipv6,
+        )
 
         scanner = Scanner(config)
 
@@ -114,6 +123,7 @@ def main() -> int:
             target=target,
             results=results,
             json_output=args.json,
+            output_file=args.output,
         )
 
         return 0
