@@ -6,6 +6,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from .exceptions import ConfigurationError
+
 
 @dataclass(frozen=True, slots=True)
 class Config:
@@ -36,28 +38,38 @@ class Config:
     workers: int = 100
     banner_grab: bool = True
     max_banner_size: int = 256
-    retries: int = 1
+    retries: int = 0
     ipv6: bool = False
 
     def __post_init__(self) -> None:
         """Validate configuration values."""
 
         if self.timeout <= 0:
-            raise ValueError("timeout must be greater than zero")
+            raise ConfigurationError(
+                "timeout must be greater than zero"
+            )
 
         if self.workers < 1:
-            raise ValueError("workers must be at least 1")
+            raise ConfigurationError(
+                "workers must be at least 1"
+            )
 
         if self.workers > 1000:
-            raise ValueError("workers cannot exceed 1000")
+            raise ConfigurationError(
+                "workers cannot exceed 1000"
+            )
 
         if self.max_banner_size < 1:
-            raise ValueError("max_banner_size must be positive")
+            raise ConfigurationError(
+                "max_banner_size must be positive"
+            )
 
         if self.max_banner_size > 4096:
-            raise ValueError(
+            raise ConfigurationError(
                 "max_banner_size cannot exceed 4096 bytes"
             )
 
-        if self.retries < 1:
-            raise ValueError("retries must be at least 1")
+        if self.retries < 0:
+            raise ConfigurationError(
+                "retries cannot be negative"
+            )
