@@ -5,7 +5,7 @@ coverage>=7.6.0
 
 # Code Formatting
 black>=24.8.0
-isort>=5.13.2
+isort>=8.0.1
 
 # Linting
 ruff>=0.6.2
