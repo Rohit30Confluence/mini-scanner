@@ -37,7 +37,7 @@ class Config:
     timeout: float = 1.0
     workers: int = 100
     banner_grab: bool = True
-    max_banner_size: int = 256
+    max_banner_size: int = 1024
     retries: int = 0
     ipv6: bool = False
 
