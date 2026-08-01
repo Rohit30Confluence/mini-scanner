@@ -3,51 +3,67 @@ name: Feature Request
 about: Suggest a new feature or enhancement
 title: "[FEATURE] "
 labels: enhancement
-assignees: ""
+assignees: Rohit30Confluence
 ---
 
 # Feature Request
 
 ## Summary
 
-Provide a short description of the feature.
+Provide a short description of the feature you'd like to see.
 
 ---
 
-## Problem
+## Problem Statement
 
-What problem are you trying to solve?
+Is your feature request related to a problem?
+
+Describe the problem clearly.
+
+Example:
+
+> I'm always frustrated when...
 
 ---
 
 ## Proposed Solution
 
-Describe your proposed solution.
+Describe the solution you'd like.
 
----
+Explain:
 
-## Alternatives Considered
-
-Describe any alternative approaches you considered.
+- What should happen?
+- How should it work?
+- What user problem does it solve?
 
 ---
 
 ## Example Usage
 
-```text
+Provide an example.
 
+```bash
+mini-scanner scan example.com --ports 80,443
+```
+
+Expected output:
+
+```text
+PORT    STATUS    SERVICE
+80      open      http
+443     open      https
 ```
 
 ---
 
-## Additional Context
+## Alternatives Considered
 
-Add any additional information, mockups, or references.
+Describe any alternative solutions or features you've considered.
 
 ---
 
-## Checklist
+## Impact
 
-- [ ] I searched existing feature requests.
-- [ ] This feature aligns with the project's goals.
-- [ ] I am willing to help implement this feature (optional).
+Who benefits?
+
+- [ ] End users
