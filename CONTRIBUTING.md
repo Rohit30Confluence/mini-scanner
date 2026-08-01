@@ -1,202 +1,168 @@
-# Contributing to Mini Scanner
+# Contributing to mini-scanner
 
-First off, thank you for considering contributing to Mini Scanner!
+Thank you for your interest in contributing to **mini-scanner**.
 
-We welcome bug reports, feature requests, documentation improvements, code contributions, and ideas that improve the project.
-
----
-
-# Table of Contents
-
-- Code of Conduct
-- Getting Started
-- Development Setup
-- Running Tests
-- Coding Standards
-- Commit Messages
-- Pull Requests
-- Reporting Bugs
-- Suggesting Features
-
----
-
-# Code of Conduct
-
-By participating in this project, you agree to follow our Code of Conduct.
-
-Please read the `CODE_OF_CONDUCT.md` before contributing.
+We welcome bug reports, feature requests, documentation improvements, and code contributions.
 
 ---
 
 # Getting Started
 
-Fork the repository.
+## 1. Fork the Repository
 
-Clone your fork.
+Click **Fork** on GitHub and clone your fork.
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/mini-scanner.git
-
 cd mini-scanner
 ```
 
-Create a virtual environment.
+Add the upstream repository:
 
 ```bash
-python -m venv .venv
+git remote add upstream https://github.com/Rohit30Confluence/mini-scanner.git
 ```
 
-Activate it.
+---
+
+## 2. Create a Virtual Environment
 
 Linux/macOS
 
 ```bash
+python -m venv .venv
 source .venv/bin/activate
 ```
 
 Windows
 
 ```powershell
+python -m venv .venv
 .venv\Scripts\activate
-```
-
-Install dependencies.
-
-```bash
-pip install -r requirements-dev.txt
-
-pip install -e .
 ```
 
 ---
 
-# Running Tests
-
-Run all tests.
+## 3. Install Dependencies
 
 ```bash
-pytest
+pip install -e .
+pip install -r requirements-dev.txt
 ```
 
-Run coverage.
+---
+
+# Development Workflow
+
+Create a feature branch.
 
 ```bash
-pytest --cov=mini_scanner
+git checkout -b feature/my-feature
+```
+
+Keep your branch up to date.
+
+```bash
+git fetch upstream
+git rebase upstream/main
 ```
 
 ---
 
 # Code Style
 
-This project uses:
-
-- Black
-- Ruff
-- isort
-- MyPy
-
-Before submitting a Pull Request, run:
+Before opening a Pull Request, run:
 
 ```bash
 black .
-
 isort .
-
-ruff check .
-
-mypy .
-
-pytest
+pytest -v
 ```
+
+If type checking is configured:
+
+```bash
+mypy .
+```
+
+---
+
+# Testing
+
+Run the complete test suite.
+
+```bash
+pytest -v
+```
+
+All tests should pass before submitting a Pull Request.
 
 ---
 
 # Commit Messages
 
-Use Conventional Commits.
+Use clear commit messages.
 
 Examples:
 
 ```
-feat(scanner): add banner grabbing
-
-fix(parser): validate port ranges
-
-docs(readme): improve installation guide
-
-test(scanner): increase coverage
-
-refactor(output): simplify formatting
+Fix banner parsing
+Add IPv6 timeout tests
+Improve CLI output
+Refactor scanner worker pool
 ```
 
 ---
 
 # Pull Requests
 
-Before opening a Pull Request:
+Please ensure:
 
-- Ensure tests pass.
-- Update documentation if needed.
-- Add tests for new functionality.
-- Keep changes focused and small.
-- Write a clear description of the changes.
+- Tests pass
+- Documentation is updated if needed
+- No unnecessary files are included
+- Commits are clean and focused
 
 ---
 
 # Reporting Bugs
 
-Please include:
+Include:
 
-- Operating System
-- Python Version
-- Steps to Reproduce
-- Expected Behavior
-- Actual Behavior
-- Error Messages
-- Logs (if available)
+- Python version
+- Operating system
+- Steps to reproduce
+- Expected behavior
+- Actual behavior
+- Complete error output
 
 ---
 
 # Suggesting Features
 
-Feature requests should include:
+Feature requests should explain:
 
-- Problem statement
-- Proposed solution
-- Alternatives considered
-- Additional context
-
----
-
-# Development Principles
-
-We value:
-
-- Readability over cleverness.
-- Simplicity over unnecessary complexity.
-- Clear documentation.
-- Comprehensive testing.
-- Backward compatibility where practical.
+- The problem
+- The proposed solution
+- Why it benefits users
+- Possible alternatives
 
 ---
 
-# Project Goals
+# Security
 
-Mini Scanner aims to be:
+Do **not** report security vulnerabilities through public GitHub Issues.
 
-- Educational
-- Modular
-- Well-tested
-- Easy to understand
-- Easy to extend
-- Friendly to contributors
+Please follow the instructions in:
+
+`SECURITY.md`
 
 ---
 
-# Questions?
+# Code of Conduct
 
-If you have questions or ideas, please open a GitHub Discussion or Issue.
+By participating in this project, you agree to follow the project's Code of Conduct.
 
-We appreciate every contribution, no matter how small.
+---
 
-Happy coding!
+Thank you for helping improve **mini-scanner**.
