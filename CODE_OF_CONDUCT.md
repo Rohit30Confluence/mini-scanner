@@ -2,93 +2,80 @@
 
 ## Our Pledge
 
-We as members, contributors, and maintainers pledge to make participation in our
-community a harassment-free experience for everyone, regardless of age, body
-size, visible or invisible disability, ethnicity, sex characteristics, gender
-identity and expression, level of experience, education, socio-economic status,
-nationality, personal appearance, race, religion, or sexual identity and
-orientation.
+We as members, contributors, and maintainers pledge to make participation in the **mini-scanner** community a respectful, welcoming, and harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-We pledge to act and interact in ways that contribute to an open, welcoming,
-diverse, inclusive, and healthy community.
+We pledge to act and interact in ways that contribute to an open, inclusive, and healthy community.
 
 ---
 
-## Our Standards
+# Our Standards
 
 Examples of behavior that contributes to a positive environment include:
 
 - Being respectful and considerate.
-- Giving and gracefully accepting constructive feedback.
+- Giving and accepting constructive feedback.
+- Respecting differing viewpoints and experiences.
 - Taking responsibility for mistakes and learning from them.
-- Showing empathy toward other community members.
-- Focusing on what is best for the project and community.
+- Focusing on what is best for the community.
+- Showing empathy toward other contributors.
 
 Examples of unacceptable behavior include:
 
-- Harassment or discrimination of any kind.
+- Harassment or discriminatory language.
 - Trolling, insulting, or derogatory comments.
 - Personal or political attacks.
 - Public or private harassment.
-- Publishing private information without permission.
+- Publishing another person's private information without permission.
 - Any conduct that could reasonably be considered inappropriate in a professional setting.
 
 ---
 
-## Enforcement Responsibilities
+# Enforcement Responsibilities
 
-Project maintainers are responsible for clarifying and enforcing this Code of Conduct and will take appropriate and fair corrective action in response to behavior deemed inappropriate, threatening, offensive, or harmful.
+Project maintainers are responsible for clarifying and enforcing this Code of Conduct.
 
-Maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, issues, wiki edits, discussions, and other contributions that violate this Code of Conduct.
+Maintainers may remove, edit, or reject comments, commits, code, issues, pull requests, discussions, or other contributions that violate this Code of Conduct.
 
 ---
 
-## Scope
+# Scope
 
 This Code of Conduct applies within all project spaces, including:
 
-- GitHub repositories
-- GitHub Discussions
+- GitHub Issues
 - Pull Requests
-- Issues
-- Project documentation
+- Discussions
+- Documentation
 - Community communication channels
+- Any official project events
 
-It also applies when an individual is officially representing the project.
-
----
-
-## Reporting
-
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting:
-
-**dinde.infosec@gmail.com**
-
-All reports will be reviewed promptly and fairly.
-
-Every reasonable effort will be made to maintain the confidentiality of the reporter.
+It also applies when an individual is representing the project in public spaces.
 
 ---
 
-## Enforcement Guidelines
+# Enforcement
 
-Project maintainers may take actions including:
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainers through the contact methods described in the repository.
 
-1. Correction
-2. Warning
-3. Temporary Ban
-4. Permanent Ban
-
-The severity of the action depends on the nature and frequency of the violation.
+All reports will be reviewed promptly and handled fairly and confidentially whenever possible.
 
 ---
 
-## Attribution
+# Enforcement Guidelines
+
+Maintainers may take actions including:
+
+- Warning
+- Temporary restriction
+- Permanent ban
+- Removal of inappropriate content
+
+The response will depend on the severity and frequency of the behavior.
+
+---
+
+# Attribution
 
 This Code of Conduct is adapted from the **Contributor Covenant**, version 2.1.
 
 https://www.contributor-covenant.org/version/2/1/code_of_conduct/
-
-For answers to common questions, see:
-
-https://www.contributor-covenant.org/faq/
