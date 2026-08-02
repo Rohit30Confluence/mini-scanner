@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mini Scanner — Demo Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">
+      <span class="brand-dot" id="brandDot"></span>
+      MINI&nbsp;SCANNER<span class="brand-suffix">/demo</span>
+    </span>
+    <span class="topbar-meta">TCP connect scanner · simulated console</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">Simulated demo — no live network scan</p>
+    <h1>See how mini-scanner's results look.</h1>
+    <p class="hero-sub">
+      This page is hosted on GitHub Pages, which serves static files only —
+      it can't open real TCP sockets. So this console <strong>simulates</strong>
+      scan output (deterministically, from your input) to demonstrate the
+      UI and result format. For a real scan, run the
+      <code>mini-scanner</code> CLI or the Flask web UI in this repo locally.
+    </p>
+  </section>
+
+  <div class="demo-banner">
+    ⚠ Simulated results only — no packets are actually sent to any host from this page.
+  </div>
+
+  <section class="console">
+
+    <form id="scanForm" class="panel form-panel" autocomplete="off">
+      <div class="field">
+        <label for="host">Target host or IP</label>
+        <input id="host" name="host" type="text" placeholder="scanme.nmap.org" required />
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="ports">Ports <span class="hint">(e.g. 1-1024, or 22,80,443)</span></label>
+          <input id="ports" name="ports" type="text" value="1-100" required />
+        </div>
+      </div>
+
+      <button type="submit" id="scanBtn" class="scan-btn">
+        <span class="btn-label">Run simulated scan</span>
+        <span class="btn-spinner" hidden></span>
+      </button>
+
+      <p class="form-note">
+        Demo caps the range at 500 ports so the panel stays readable.
+        Nothing here touches the network — it's a local JavaScript simulation
+        for exploring the UI.
+      </p>
+
+      <p id="formError" class="form-error" hidden></p>
+    </form>
+
+    <div class="panel results-panel">
+      <div class="results-header">
+        <h2>Panel</h2>
+        <div id="resultsMeta" class="results-meta">Awaiting target…</div>
+      </div>
+
+      <div id="patchPanel" class="patch-panel" aria-live="polite">
+        <p class="patch-empty">Run a simulated scan to populate the panel.</p>
+      </div>
+
+      <div id="resultsTableWrap" class="table-wrap" hidden>
+        <table class="results-table">
+          <thead>
+            <tr><th>Port</th><th>Status</th><th>Service</th><th>Banner</th></tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+
+      <div id="resultsActions" class="results-actions" hidden>
+        <button id="downloadJson" class="ghost-btn">Download JSON</button>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="foot">
+    <span>mini-scanner demo console · static, GitHub Pages</span>
+    <span class="foot-dim">For a real scan: run the CLI or the Flask web UI locally.</span>
+  </footer>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
