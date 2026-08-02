@@ -1,77 +1,58 @@
-# Contributing to mini-scanner
+# Code of Conduct
 
-Thanks for taking a look at this project. mini-scanner began as a
-learning exercise — building a small TCP port scanner from scratch to
-understand the ideas behind tools like `nmap` — and it's shared as open
-source in that same spirit: something built while learning, offered back
-to others who are learning too. Contributions from people at any
-experience level are genuinely welcome, including your first-ever pull
-request.
+## Our pledge
 
-## Ways to contribute
+mini-scanner started as an open-source learning project — a small TCP port
+scanner built to understand how tools like `nmap` work under the hood, and
+shared back with the open-source community in that same spirit. We want
+this to stay a welcoming place for people at any stage of learning:
+first-time contributors, students, and experienced engineers alike.
 
-You don't have to write code to contribute:
+We pledge to make participation in this project a harassment-free
+experience for everyone, regardless of age, body size, visible or invisible
+disability, ethnicity, sex characteristics, gender identity and expression,
+level of experience, education, socio-economic status, nationality, personal
+appearance, race, religion, or sexual identity and orientation.
 
-- **Report a bug** — open an issue with steps to reproduce, what you
-  expected, and what actually happened
-- **Suggest an improvement** — new scan options, better output formatting,
-  docs clarifications, etc.
-- **Improve documentation** — fix a typo, clarify a confusing paragraph,
-  add an example
-- **Write code** — fix a bug, add a feature, improve test coverage
-- **Review pull requests** — feedback on open PRs is genuinely useful
+## Our standards
 
-## Getting set up
+Examples of behavior that contributes to a positive environment:
 
-```bash
-# fork the repo, then clone your fork
-git clone https://github.com/<your-username>/mini-scanner.git
-cd mini-scanner
+- Being patient and welcoming with people who are new to networking,
+  security, or open source in general
+- Giving and gracefully accepting constructive feedback on code and design
+- Focusing on what is best for the project and its learners, not just
+  individual preference
+- Showing empathy toward other contributors
 
-# install in editable mode
-pip install -e .
+Examples of unacceptable behavior:
 
-# (optional) install dev/test dependencies if present
-pip install -r requirements-dev.txt   # skip if this file doesn't exist yet
+- Harassment, insults, or derogatory comments, public or private
+- Publishing others' private information without explicit permission
+- Trolling, deliberately derailing discussions, or gatekeeping ("this is
+  too basic a question") toward people who are learning
+- Any conduct that would reasonably be considered inappropriate in a
+  professional or educational setting
 
-# run the test suite before you start, to confirm a clean baseline
-pytest
-```
+## Scope
 
-## Making a change
+This Code of Conduct applies within all project spaces — issues, pull
+requests, discussions, and any other official communication channels — and
+also applies when an individual is officially representing the project in
+public spaces.
 
-1. Create a branch from `main`:
-   `git checkout -b fix/short-description` or `feature/short-description`
-2. Make your change, keeping commits focused and readable.
-3. Add or update tests for any behavior you change.
-4. Run the test suite locally and make sure it passes.
-5. Update relevant docs (`README.md`, docstrings, help text) if behavior
-   or usage changed.
-6. Open a pull request against `main` with:
-   - A clear description of *what* changed and *why*
-   - Any relevant issue number (`Fixes #12`)
-   - Before/after output if the change affects CLI behavior
+## Enforcement
 
-## Pull request expectations
+Instances of unacceptable behavior may be reported by opening a private
+report via GitHub, or by contacting the maintainer directly through the
+contact method listed on their GitHub profile. All complaints will be
+reviewed and investigated promptly and fairly.
 
-- Keep PRs focused — one logical change per PR is easier to review than a
-  bundle of unrelated fixes.
-- It's fine to open a draft PR early and ask for feedback before it's
-  finished — that's often the fastest way to learn the codebase.
-- Be responsive to review comments, but don't feel discouraged by them —
-  review is about the code, not a judgment of the contributor.
+Maintainers are responsible for clarifying and enforcing our standards and
+will take appropriate, fair corrective action in response to any behavior
+they deem inappropriate, threatening, offensive, or harmful.
 
-## A note on scope, since this is a scanner
+## Attribution
 
-Contributions that add scanning capability should stay focused on
-legitimate network diagnostics and security-education use cases (the same
-spirit as tools like `nmap`). Please don't submit changes intended to
-evade detection, spoof traffic, or otherwise aid unauthorized access to
-systems. See [SECURITY.md](SECURITY.md) for how we think about responsible
-use of this tool more broadly.
-
-## Questions
-
-If anything here is unclear, or you're not sure whether an idea fits the
-project, open an issue and ask before investing a lot of time — that's
-what issues are for, and no question is too basic.
+This Code of Conduct is adapted from the
+[Contributor Covenant](https://www.contributor-covenant.org), version 2.1.
