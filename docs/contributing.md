@@ -1,283 +1,77 @@
-# Contributing
+# Contributing to mini-scanner
 
-Thank you for your interest in contributing to **mini-scanner**.
+Thanks for taking a look at this project. mini-scanner began as a
+learning exercise — building a small TCP port scanner from scratch to
+understand the ideas behind tools like `nmap` — and it's shared as open
+source in that same spirit: something built while learning, offered back
+to others who are learning too. Contributions from people at any
+experience level are genuinely welcome, including your first-ever pull
+request.
 
-Whether you're fixing a bug, improving documentation, adding tests, or implementing a new feature, your contribution is appreciated.
+## Ways to contribute
 
----
+You don't have to write code to contribute:
 
-# Before You Start
+- **Report a bug** — open an issue with steps to reproduce, what you
+  expected, and what actually happened
+- **Suggest an improvement** — new scan options, better output formatting,
+  docs clarifications, etc.
+- **Improve documentation** — fix a typo, clarify a confusing paragraph,
+  add an example
+- **Write code** — fix a bug, add a feature, improve test coverage
+- **Review pull requests** — feedback on open PRs is genuinely useful
 
-Before opening an Issue or Pull Request:
-
-- Search existing Issues to avoid duplicates.
-- Read the project's `CONTRIBUTING.md`.
-- Ensure your change aligns with the project's goals.
-- Keep Pull Requests focused on a single logical change.
-
----
-
-# Development Setup
-
-Clone the repository:
+## Getting set up
 
 ```bash
-git clone https://github.com/Rohit30Confluence/mini-scanner.git
+# fork the repo, then clone your fork
+git clone https://github.com/<your-username>/mini-scanner.git
 cd mini-scanner
-```
 
-Create a virtual environment:
+# install in editable mode
+pip install -e .
 
-```bash
-python -m venv .venv
-```
+# (optional) install dev/test dependencies if present
+pip install -r requirements-dev.txt   # skip if this file doesn't exist yet
 
-Activate it.
-
-Linux/macOS:
-
-```bash
-source .venv/bin/activate
-```
-
-Windows:
-
-```powershell
-.venv\Scripts\activate
-```
-
-Install dependencies:
-
-```bash
-pip install -e ".[dev]"
-```
-
-or
-
-```bash
-pip install -r requirements-dev.txt
-```
-
----
-
-# Creating a Branch
-
-Always create a feature branch.
-
-```bash
-git checkout -b feature/add-ipv6-support
-```
-
-Examples:
-
-```
-feature/banner-improvements
-bugfix/socket-timeout
-docs/api-reference
-refactor/thread-pool
-```
-
----
-
-# Code Style
-
-Follow these guidelines:
-
-- PEP 8
-- Black formatting
-- isort import ordering
-- Ruff linting
-- mypy type checking
-- Descriptive naming
-- Small, focused functions
-- Public APIs should include docstrings
-
----
-
-# Running Checks
-
-Format:
-
-```bash
-make format
-```
-
-Lint:
-
-```bash
-make lint
-```
-
-Type checking:
-
-```bash
-make typecheck
-```
-
-Run tests:
-
-```bash
+# run the test suite before you start, to confirm a clean baseline
 pytest
 ```
 
-Run everything:
+## Making a change
 
-```bash
-make check
-```
+1. Create a branch from `main`:
+   `git checkout -b fix/short-description` or `feature/short-description`
+2. Make your change, keeping commits focused and readable.
+3. Add or update tests for any behavior you change.
+4. Run the test suite locally and make sure it passes.
+5. Update relevant docs (`README.md`, docstrings, help text) if behavior
+   or usage changed.
+6. Open a pull request against `main` with:
+   - A clear description of *what* changed and *why*
+   - Any relevant issue number (`Fixes #12`)
+   - Before/after output if the change affects CLI behavior
 
----
+## Pull request expectations
 
-# Writing Tests
+- Keep PRs focused — one logical change per PR is easier to review than a
+  bundle of unrelated fixes.
+- It's fine to open a draft PR early and ask for feedback before it's
+  finished — that's often the fastest way to learn the codebase.
+- Be responsive to review comments, but don't feel discouraged by them —
+  review is about the code, not a judgment of the contributor.
 
-Every new feature or bug fix should include appropriate tests.
+## A note on scope, since this is a scanner
 
-Tests belong in:
+Contributions that add scanning capability should stay focused on
+legitimate network diagnostics and security-education use cases (the same
+spirit as tools like `nmap`). Please don't submit changes intended to
+evade detection, spoof traffic, or otherwise aid unauthorized access to
+systems. See [SECURITY.md](SECURITY.md) for how we think about responsible
+use of this tool more broadly.
 
-```
-tests/
-```
+## Questions
 
-Naming:
-
-```
-test_scanner.py
-test_cli.py
-test_config.py
-```
-
-Keep tests:
-
-- Independent
-- Repeatable
-- Easy to understand
-- Fast to execute
-
----
-
-# Documentation
-
-Update documentation whenever behavior changes.
-
-Possible files include:
-
-```
-README.md
-docs/
-CHANGELOG.md
-```
-
-Examples are encouraged for new features.
-
----
-
-# Commit Messages
-
-Use clear, concise commit messages.
-
-Good examples:
-
-```
-Add IPv6 scanning support
-
-Fix socket timeout handling
-
-Improve CLI help output
-
-Add unit tests for banner grabbing
-
-Update installation guide
-```
-
-Avoid:
-
-```
-fix
-
-update
-
-changes
-
-misc
-```
-
----
-
-# Pull Requests
-
-Before submitting:
-
-- Sync with the latest `main` branch.
-- Ensure CI passes.
-- Resolve merge conflicts.
-- Update documentation if necessary.
-- Keep the PR focused on a single topic.
-
-Include:
-
-- What changed
-- Why it changed
-- How it was tested
-- Any known limitations
-
----
-
-# Reviewing Code
-
-When reviewing contributions:
-
-- Verify correctness.
-- Check readability.
-- Suggest improvements respectfully.
-- Ensure tests cover new functionality.
-- Confirm documentation remains accurate.
-
----
-
-# Reporting Bugs
-
-Include:
-
-- Operating system
-- Python version
-- mini-scanner version
-- Command executed
-- Expected behavior
-- Actual behavior
-- Error messages or stack traces
-- Steps to reproduce
-
----
-
-# Suggesting Features
-
-Feature requests should explain:
-
-- The problem being solved
-- Proposed solution
-- Alternative approaches considered
-- Potential impact on existing users
-
----
-
-# Security Issues
-
-Do **not** report security vulnerabilities through public GitHub Issues.
-
-Follow the project's `SECURITY.md` policy for responsible disclosure.
-
----
-
-# Code of Conduct
-
-All contributors are expected to follow the project's `CODE_OF_CONDUCT.md`.
-
-Be respectful, constructive, and welcoming to others.
-
----
-
-# Recognition
-
-Every accepted contribution—code, documentation, tests, bug reports, or ideas—helps improve the project and is appreciated.
-
-Thank you for contributing to **mini-scanner**!
+If anything here is unclear, or you're not sure whether an idea fits the
+project, open an issue and ask before investing a lot of time — that's
+what issues are for, and no question is too basic.
