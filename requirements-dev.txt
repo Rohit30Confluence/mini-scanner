@@ -29,7 +29,7 @@ mkdocs>=1.6.1
 mkdocs-material>=9.6.20
 
 # Security
-pip-audit>=2.9.0
+pip-audit>=2.10.1
 detect-secrets>=1.5.0
 
 # Utilities
